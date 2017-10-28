@@ -1,0 +1,24 @@
+{
+  "name": "pkondudu-cse591-aw-assignment-3",
+  "version": "1.0.0",
+  "description": "CSE 591 Adaptive Web Assignment 3 Web Crawler",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AravindKv805/CSE591Assignment3.git"
+  },
+  "author": "Aravind",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/AravindKv805/CSE591Assignment3/issues"
+  },
+  "homepage": "https://github.com/AravindKv805/CSE591Assignment3#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-webcrawler": "^0.8.0"
+  }
+}
