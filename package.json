@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/AravindKv805/CSE591Assignment3#readme",
   "dependencies": {
-    "express": "^4.16.2",
-    "node-webcrawler": "^0.8.0"
+    "crawler": "^1.1.1",
+    "express": "^4.16.2"
   }
 }
