@@ -1,4 +1,5 @@
 let Crawler = require("crawler");
+let SolrNode = require('solr-node');
 let url = require('url');
 let fs = require('fs');
 
@@ -6,11 +7,28 @@ const myRegex = /\/wiki\/Java_Programming(.*)$/g;
 const baseDomain = "https://en.wikibooks.org";
 const newLineRegex = /\n/g
 
+const solrBaseUrl = "http://ec2-34-213-252-195.us-west-2.compute.amazonaws.com:8983/solr/demo/update";
+
 let visitedURLs = [];
 
-let c = new Crawler({
-    maxConnections: 10,
+let client = new SolrNode({
+    host: 'ec2-34-213-252-195.us-west-2.compute.amazonaws.com',
+    port: '8983',
+    core: 'mycore',
+    protocol: 'http',
+    debugLevel: 'ERROR'
+});
 
+client.delete("*:*", function(err, result) {
+   if (err) {
+      console.log(err);
+      return;
+   }
+   console.log('Response:', result.responseHeader);
+});
+
+let c = new Crawler({
+    rateLimit: 1000,
     callback: function(error, res, done) {
         if (error) {
             console.log(error);
@@ -51,6 +69,13 @@ let c = new Crawler({
                         };
 
                         parts.push(part);
+                        client.update(part, function(err, result) {
+                            if (err) {
+                                console.log(err);
+                                return;
+                            }
+                            console.log('Response:', result.responseHeader);
+                        });
                     }
 
                     tempElements = [];
@@ -81,11 +106,6 @@ let c = new Crawler({
 
                     parts.push(part);
                 }
-            }
-
-            if (parts.length > 0) {
-                // console.log(parts);
-                // TODO: POST parts into Solr
             }
         }
 

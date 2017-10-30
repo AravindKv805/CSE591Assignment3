@@ -19,6 +19,7 @@
   "homepage": "https://github.com/AravindKv805/CSE591Assignment3#readme",
   "dependencies": {
     "crawler": "^1.1.1",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "solr-node": "^1.0.13"
   }
 }
