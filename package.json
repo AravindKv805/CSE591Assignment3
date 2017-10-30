@@ -1,7 +1,7 @@
 {
-  "name": "pkondudu-cse591-aw-assignment-3",
+  "name": "pkondudu-cse591-aw-assignment-3-crawler",
   "version": "1.0.0",
-  "description": "CSE 591 Adaptive Web Assignment 3 Web Crawler",
+  "description": "CSE 591 Adaptive Web Assignment 3 Crawler",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
