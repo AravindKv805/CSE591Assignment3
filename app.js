@@ -2,6 +2,7 @@ let Crawler = require("crawler");
 let SolrNode = require('solr-node');
 let url = require('url');
 let fs = require('fs');
+let solr_config = require('./solr_config.json');
 
 const wikibooksRegex = /\/wiki\/Java_Programming(.*)$/g;
 const oracleRegex = /\/javase\/Java_Programming(.*)$/g;
@@ -12,13 +13,7 @@ const solrBaseUrl = "http://ec2-34-213-252-195.us-west-2.compute.amazonaws.com:8
 
 let visitedURLs = [];
 
-let client = new SolrNode({
-    host: 'ec2-34-213-252-195.us-west-2.compute.amazonaws.com',
-    port: '8983',
-    core: 'mycore',
-    protocol: 'http',
-    debugLevel: 'ERROR'
-});
+let client = new SolrNode(solr_config);
 
 client.delete("*:*", function(err, result) {
     if (err) {

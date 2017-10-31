@@ -1,0 +1,7 @@
+{
+    "host": "ec2-34-213-252-195.us-west-2.compute.amazonaws.com",
+    "port": "8983",
+    "core": "mycore",
+    "protocol": "http",
+    "debugLevel": "ERROR"
+}
